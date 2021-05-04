@@ -10,7 +10,6 @@ import com.example.t_mobile.model.Card
 class CardsAdapter(
     private val results: List<Card>
 ) : RecyclerView.Adapter<CardsAdapter.TrackViewHolder>() {
-    private val TAG = "CardsAdapter"
 
     override fun onCreateViewHolder(
         parent: ViewGroup, viewType: Int
@@ -20,14 +19,7 @@ class CardsAdapter(
 
     override fun onBindViewHolder(
         holder: TrackViewHolder, position: Int
-    ) = with(holder.binding) {
-        Glide.with(image.context)
-            .load(results[position].card?.image?.url.toString())
-            .into(image)
-        card = results[position]
-
-
-    }
+    ) = with(holder.binding) { card = results[position] }
 
     override fun getItemCount() = results.size
 
